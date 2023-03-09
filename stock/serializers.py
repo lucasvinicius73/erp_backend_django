@@ -1,4 +1,4 @@
-from api.models import Batch, Category, Product
+from models import Batch, Category, Product
 from rest_framework import serializers
 
 
