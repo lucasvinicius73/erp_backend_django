@@ -34,19 +34,27 @@ class Product(models.Model):
         Category, 
         on_delete=models.CASCADE
     )
-    quantity = models.IntegerField(
-        null=True,
-        blank=False,
-    )
-    
     description = models.CharField(
         max_length=120,
         null=False,
         blank=False
     )
+
+    quantity = models.IntegerField(
+        null=True,
+        blank=False,
+    )
+    meanCost = models.IntegerField(
+        null=True,
+        blank=False,
+    )
+    
+    def __str__(self):
+        return str(self.name)
+    
 class Batch(models.Model):
-    date = models.DateField(auto_now_add=True)
-    idProduct = models.ForeignKey(Product,on_delete=models.CASCADE)
+    date = models.DateField()
+    Product = models.ForeignKey(Product,on_delete=models.CASCADE)
     costUnit = models.DecimalField(
         null=False,
         blank=False,

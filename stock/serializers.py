@@ -12,8 +12,6 @@ class ProductSerializer(serializers.ModelSerializer):
             'brand',
             'category',
             'description',
-
-
         ]
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -33,7 +31,7 @@ class BatchSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'date',
-            'idProduct',
+            'Product',
             'costUnit',
             'quantity'
         ]
