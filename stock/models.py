@@ -8,11 +8,12 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-    
-class Batch(models.Model):
-    name = models.DateField(auto_now_add=True)
+class Brand(models.Model):
+    name = models.CharField(max_length=65)
+
     def __str__(self):
-        return str(self.name)
+        return self.name
+    
 # Create your models here.
 class Product(models.Model):
     name = models.CharField(
@@ -26,11 +27,10 @@ class Product(models.Model):
         max_digits=7,
         decimal_places=2
     )
-    cost = models.DecimalField(
-        null=False,
-        blank=False,
-        max_digits=7,
-        decimal_places=2
+    brand = models.ForeignKey(Brand)
+    category = models.ForeignKey(
+        Category, 
+        on_delete=models.CASCADE
     )
     quantity = models.IntegerField(
         null=False,
@@ -42,11 +42,19 @@ class Product(models.Model):
         null=False,
         blank=False
     )
-    category = models.ForeignKey(
-        Category, 
-        on_delete=models.CASCADE
+class Batch(models.Model):
+    date = models.DateField(auto_now_add=True)
+    idProduct = models.ForeignKey(Product,)
+    costUnit = models.DecimalField(
+        null=False,
+        blank=False,
+        max_digits=7,
+        decimal_places=2
     )
-    batch = models.ForeignKey(
-        Batch,
-        on_delete=models.CASCADE
+    quantity = models.IntegerField(
+        null=False,
+        blank=False,
     )
+
+    def __str__(self):
+        return str(self.name)

@@ -1,8 +1,8 @@
 from rest_framework.routers import DefaultRouter
-from api.views import ProductViewSet,CategoryViewSet,BatchViewSet
+from views import ProductViewSet,CategoryViewSet,BatchViewSet
 
 
-app_name = 'api'
+app_name = 'stock'
 
 router = DefaultRouter(trailing_slash=False)
 router.register(r'products', ProductViewSet)
