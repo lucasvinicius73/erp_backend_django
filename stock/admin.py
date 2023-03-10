@@ -1,14 +1,9 @@
 from django.contrib import admin
 
-from stock.models import Batch, Category, Product
-
-
-class Products(admin.ModelAdmin):
-    list_display = ('id','name','price','cost')
-    list_display_links = ('id','name')
-    search_fields = ('name',)
-    list_per_page = 20
-
-admin.site.register(Product,Products)
+from stock.models import Batch, Brand, Category, Product
 
 # Register your models here.
+admin.site.register(Product)
+admin.site.register(Category)
+admin.site.register(Batch)
+admin.site.register(Brand)

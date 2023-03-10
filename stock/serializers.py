@@ -1,5 +1,5 @@
-from models import Batch, Category, Product,Brand
 from rest_framework import serializers
+from .models import Batch, Brand, Category, Product
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -10,7 +10,7 @@ class ProductSerializer(serializers.ModelSerializer):
             'name',
             'price',
             'brand',
-            'category'
+            'category',
             'description',
 
 

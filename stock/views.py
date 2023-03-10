@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from models import Product,Category,Batch,Brand
-from serializers import ProductSerializer,CategorySerializer,BatchSerializer,BrandSerializer
+from .models import Batch, Brand, Category, Product
+from .serializers import (BatchSerializer, BrandSerializer, CategorySerializer,ProductSerializer)
 
 
 class ProductViewSet(viewsets.ModelViewSet):

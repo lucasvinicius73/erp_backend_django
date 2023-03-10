@@ -27,13 +27,15 @@ class Product(models.Model):
         max_digits=7,
         decimal_places=2
     )
-    brand = models.ForeignKey(Brand)
+    brand = models.ForeignKey(
+        Brand,
+        on_delete=models.CASCADE)
     category = models.ForeignKey(
         Category, 
         on_delete=models.CASCADE
     )
     quantity = models.IntegerField(
-        null=False,
+        null=True,
         blank=False,
     )
     
@@ -44,7 +46,7 @@ class Product(models.Model):
     )
 class Batch(models.Model):
     date = models.DateField(auto_now_add=True)
-    idProduct = models.ForeignKey(Product)
+    idProduct = models.ForeignKey(Product,on_delete=models.CASCADE)
     costUnit = models.DecimalField(
         null=False,
         blank=False,
