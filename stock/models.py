@@ -44,7 +44,7 @@ class Product(models.Model):
     )
 class Batch(models.Model):
     date = models.DateField(auto_now_add=True)
-    idProduct = models.ForeignKey(Product,)
+    idProduct = models.ForeignKey(Product)
     costUnit = models.DecimalField(
         null=False,
         blank=False,
@@ -57,4 +57,4 @@ class Batch(models.Model):
     )
 
     def __str__(self):
-        return str(self.name)
+        return str(self.idProduct.name + self.date)

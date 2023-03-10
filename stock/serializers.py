@@ -1,4 +1,4 @@
-from models import Batch, Category, Product
+from models import Batch, Category, Product,Brand
 from rest_framework import serializers
 
 
@@ -9,11 +9,10 @@ class ProductSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'price',
-            'cost',
-            'quantity',
+            'brand',
+            'category'
             'description',
-            'category',
-            'batch',
+
 
         ]
 class CategorySerializer(serializers.ModelSerializer):
@@ -22,9 +21,19 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = [
             'name'
         ]
+class BrandSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Brand
+        fields = [
+            'name'
+        ]
 class BatchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Batch
         fields = [
-            'id'
+            'id',
+            'date',
+            'idProduct',
+            'costUnit',
+            'quantity'
         ]
